@@ -129,12 +129,12 @@ user_pref("beacon.enabled", false);
 // PREF: Disable clipboard event detection (onCut/onCopy/onPaste) via Javascript
 // NOTICE: Disabling clipboard events breaks Ctrl+C/X/V copy/cut/paste functionaility in JS-based web applications (Google Docs...)
 // https://developer.mozilla.org/en-US/docs/Mozilla/Preferences/Preference_reference/dom.event.clipboardevents.enabled
-user_pref("dom.event.clipboardevents.enabled", false);
+user_pref("dom.event.clipboardevents.enabled", true);
 
 // PREF: Disable "copy to clipboard" functionality via Javascript (Firefox >= 41)
 // NOTICE: Disabling clipboard operations will break legitimate JS-based "copy to clipboard" functionality
 // https://hg.mozilla.org/mozilla-central/rev/2f9f8ea4b9c3
-user_pref("dom.allow_cut_copy", false);
+user_pref("dom.allow_cut_copy", true);
 
 // PREF: Disable speech recognition
 // https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html
@@ -769,7 +769,7 @@ user_pref("network.http.referer.XOriginPolicy", 2);
 // http://kb.mozillazine.org/Network.cookie.cookieBehavior#1
 // NOTICE: Blocking 3rd-party cookies breaks a number of payment gateways
 // CIS 2.5.1
-user_pref("network.cookie.cookieBehavior", 1);
+user_pref("network.cookie.cookieBehavior", 3); //3 = allow third party.
 
 // PREF: Enable first-party isolation
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1299996
@@ -783,7 +783,7 @@ user_pref("privacy.firstparty.isolate", true);
 // https://feeding.cloud.geek.nz/posts/tweaking-cookies-for-privacy-in-firefox/
 // http://kb.mozillazine.org/Network.cookie.thirdparty.sessionOnly
 // https://developer.mozilla.org/en-US/docs/Cookies_Preferences_in_Mozilla#network.cookie.thirdparty.sessionOnly
-user_pref("network.cookie.thirdparty.sessionOnly", true);
+user_pref("network.cookie.thirdparty.sessionOnly", false);
 
 // PREF: Spoof User-agent (disabled)
 //user_pref("general.useragent.override", "Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0");
@@ -815,27 +815,27 @@ user_pref("browser.cache.offline.enable", false);
 // NOTICE: Installing user.js will remove your browsing history, caches and local storage.
 // NOTICE: Installing user.js **will remove your saved passwords** (https://github.com/pyllyukko/user.js/issues/27)
 // NOTICE: Clearing open windows on Firefox exit causes 2 windows to open when Firefox starts https://bugzilla.mozilla.org/show_bug.cgi?id=1334945
-user_pref("privacy.sanitize.sanitizeOnShutdown", true);
-user_pref("privacy.clearOnShutdown.cache", true);
-user_pref("privacy.clearOnShutdown.cookies", true);
-user_pref("privacy.clearOnShutdown.downloads", true);
-user_pref("privacy.clearOnShutdown.formdata", true);
-user_pref("privacy.clearOnShutdown.history", true);
-user_pref("privacy.clearOnShutdown.offlineApps", true);
-user_pref("privacy.clearOnShutdown.sessions", true);
-user_pref("privacy.clearOnShutdown.openWindows", true);
+// user_pref("privacy.sanitize.sanitizeOnShutdown", true);
+// user_pref("privacy.clearOnShutdown.cache", true);
+// user_pref("privacy.clearOnShutdown.cookies", true);
+// user_pref("privacy.clearOnShutdown.downloads", true);
+// user_pref("privacy.clearOnShutdown.formdata", true);
+// user_pref("privacy.clearOnShutdown.history", true);
+// user_pref("privacy.clearOnShutdown.offlineApps", true);
+// user_pref("privacy.clearOnShutdown.sessions", true);
+// user_pref("privacy.clearOnShutdown.openWindows", true);
 
 // PREF: Set time range to "Everything" as default in "Clear Recent History"
 user_pref("privacy.sanitize.timeSpan", 0);
 
 // PREF: Clear everything but "Site Preferences" in "Clear Recent History"
-user_pref("privacy.cpd.offlineApps", true);
-user_pref("privacy.cpd.cache", true);
-user_pref("privacy.cpd.cookies", true);
-user_pref("privacy.cpd.downloads", true);
-user_pref("privacy.cpd.formdata", true);
-user_pref("privacy.cpd.history", true);
-user_pref("privacy.cpd.sessions", true);
+// user_pref("privacy.cpd.offlineApps", true);
+// user_pref("privacy.cpd.cache", true);
+// user_pref("privacy.cpd.cookies", true);
+// user_pref("privacy.cpd.downloads", true);
+// user_pref("privacy.cpd.formdata", true);
+// user_pref("privacy.cpd.history", true);
+// user_pref("privacy.cpd.sessions", true);
 
 // PREF: Don't remember browsing history
 user_pref("places.history.enabled", true);
@@ -855,18 +855,19 @@ user_pref("browser.cache.disk_cache_ssl", false);
 
 // PREF: Disable download history
 // CIS Version 1.2.0 October 21st, 2011 2.5.5
-user_pref("browser.download.manager.retention", 0);
+// user_pref("browser.download.manager.retention", 0);
 
 // PREF: Disable password manager (use an external password manager!)
 // CIS Version 1.2.0 October 21st, 2011 2.5.2
-user_pref("signon.rememberSignons", false);
+user_pref("signon.rememberSignons", true);
 
 // PREF: Disable form autofill, don't save information entered in web page forms and the Search Bar
 user_pref("browser.formfill.enable", true);
 
 // PREF: Cookies expires at the end of the session (when the browser closes)
 // http://kb.mozillazine.org/Network.cookie.lifetimePolicy#2
-user_pref("network.cookie.lifetimePolicy", 2);
+user_pref("network.cookie.lifetimePolicy", 3); // 3 = use lifetime.days
+user_pref("network.cookie.lifetime.days", 30);
 
 // PREF: Require manual intervention to autofill known username/passwords sign-in forms
 // http://kb.mozillazine.org/Signon.autofillForms
